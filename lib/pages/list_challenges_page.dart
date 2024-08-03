@@ -4,8 +4,13 @@ import 'package:ecoquest/utils/challenge_preferences.dart';
 
 class ListChallengesPage extends StatefulWidget {
   final bool isDarkMode;
+  final ValueChanged<bool> onThemeChanged;
 
-  const ListChallengesPage({super.key, required this.isDarkMode});
+  const ListChallengesPage({
+    super.key,
+    required this.isDarkMode,
+    required this.onThemeChanged,
+  });
 
   @override
   _ListChallengesPageState createState() => _ListChallengesPageState();
@@ -74,6 +79,31 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
     );
   }
 
+  void _showThemeDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Select Theme Mode'),
+          content: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Light Mode'),
+              Switch(
+                value: widget.isDarkMode,
+                onChanged: (bool value) {
+                  Navigator.of(context).pop();
+                  widget.onThemeChanged(value);
+                },
+              ),
+              Text('Dark Mode'),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +111,12 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
         title: Text('List of Challenges'),
         backgroundColor:
             widget.isDarkMode ? Colors.blue[700] : Colors.blue[300],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.brightness_6),
+            onPressed: _showThemeDialog,
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

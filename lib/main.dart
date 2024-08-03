@@ -26,9 +26,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool _isDarkMode = false;
 
-  void _toggleTheme() {
+  void _toggleTheme(bool isDarkMode) {
     setState(() {
-      _isDarkMode = !_isDarkMode;
+      _isDarkMode = isDarkMode;
     });
   }
 
@@ -43,10 +43,11 @@ class _MyAppState extends State<MyApp> {
           ? AppRoutes.welcome
           : AppRoutes.mainPage,
       routes: {
-        AppRoutes.mainPage: (context) =>
-            MainPage(toggleTheme: _toggleTheme, isDarkMode: _isDarkMode),
-        AppRoutes.challengeList: (context) =>
-            ListChallengesPage(isDarkMode: _isDarkMode),
+        AppRoutes.mainPage: (context) => MainPage(
+            toggleTheme: () => _toggleTheme(!_isDarkMode),
+            isDarkMode: _isDarkMode),
+        AppRoutes.challengeList: (context) => ListChallengesPage(
+            isDarkMode: _isDarkMode, onThemeChanged: _toggleTheme),
         AppRoutes.previousChallenges: (context) => PreviousChallenges(),
         AppRoutes.welcome: (context) => WelcomePage(),
       },
