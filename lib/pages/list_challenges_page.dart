@@ -38,8 +38,13 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
   Widget build(BuildContext context) {
     final textStyle = TextStyle(
       color: widget.isDarkMode ? Colors.white : Colors.black,
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+    );
+
+    final inputTextStyle = TextStyle(
+      color: widget.isDarkMode ? Colors.white : Colors.black,
+      fontSize: 16,
     );
 
     return Scaffold(
@@ -50,49 +55,52 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
             widget.isDarkMode ? Colors.blue[100] : Colors.blue[400],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Expanded(
               child: ListView.builder(
                 itemCount: challenges.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-                    child: Text(challenges[index], style: textStyle),
+                  return Card(
+                    margin: const EdgeInsets.symmetric(vertical: 8.0),
+                    color: widget.isDarkMode ? Colors.black : Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(challenges[index], style: textStyle),
+                    ),
                   );
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-              child: TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  labelText: "Add Custom Challenge",
-                  labelStyle: TextStyle(
-                      color: widget.isDarkMode ? Colors.white : Colors.black),
-                  border: const OutlineInputBorder(),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                labelText: "Add Custom Challenge",
+                labelStyle: inputTextStyle,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-                style: TextStyle(
-                    color: widget.isDarkMode ? Colors.white : Colors.black),
+                filled: true,
+                fillColor: widget.isDarkMode ? Colors.black : Colors.white,
               ),
+              style: inputTextStyle,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: const RoundedRectangleBorder(),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-                onPressed: _addCustomChallenge,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Add Challenge",
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                ),
+                backgroundColor:
+                    widget.isDarkMode ? Colors.blue[100] : Colors.blue[400],
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
               ),
+              onPressed: _addCustomChallenge,
+              child: const Text("Add Challenge",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
           ],
         ),

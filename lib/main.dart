@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: _isDarkMode ? Colors.green : Colors.lightGreen,
+        scaffoldBackgroundColor: _isDarkMode ? Colors.blue : Colors.lightBlue,
         brightness: _isDarkMode ? Brightness.dark : Brightness.light,
       ),
       initialRoute: '/',
