@@ -1,3 +1,5 @@
+import 'package:ecoquest/components/app_button.dart';
+import 'package:ecoquest/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -6,15 +8,6 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 213, 252, 233),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.green,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
-          BottomNavigationBarItem(icon: Icon(Icons.circle), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.arrow_back), label: "Back")
-        ],
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -42,6 +35,7 @@ class MainPage extends StatelessWidget {
                 )
               ],
             ),
+            Spacer(),
             SizedBox(height: 24,),
             Container(
               height: 125,
@@ -49,62 +43,40 @@ class MainPage extends StatelessWidget {
               color: Colors.black38,
               child: Align(alignment: Alignment.center, child: Text("Image goes here")),
             ),
-            SizedBox(height: 24,),
+            const SizedBox(height: 24,),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Text("Title That Could Possible Be Very Long Goes Here", style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),),
               ),
             ),
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Text("Description that could even more possibly be pretty long goes here", style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal),),
               ),
             ),
-            SizedBox(height: 24,),
+            Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder()
-                ),
-                onPressed: () => print("Roll challenges"),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("Roll Challenges", style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),),
-                ),
-              )
+              child: Column(
+                children: [
+                  AppButton(
+                    buttonText: "Roll Challenges", 
+                    onPressed: () => print("Roll Challenges"),),
+                  AppButton(
+                    buttonText: "List Of Challenges", 
+                    onPressed: () => Navigator.of(context).pushNamed(AppRoutes.challengeList)),
+                  AppButton(
+                    buttonText: "Previous Challenges", 
+                    onPressed: () => Navigator.of(context).pushNamed(AppRoutes.previousChallenges)),
+                ],
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder()
-                ),
-                onPressed: () => print("List Of Challenges"),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("List Of Challenges", style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),),
-                ),
-              )
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder()
-                ),
-                onPressed: () => print("Previous Challenges"),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("Previous Challenges", style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),),
-                ),
-              )
-            ),
+            Spacer()
           ],
         ),
       ),
