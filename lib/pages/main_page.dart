@@ -9,13 +9,22 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = TextStyle(
+      color: isDarkMode ? Colors.white : Colors.black,
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+    );
+
+    final descriptionStyle = TextStyle(
+      color: isDarkMode ? Colors.white : Colors.black,
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+    );
+
     return Scaffold(
-      backgroundColor: isDarkMode
-          ? Color.fromARGB(255, 11, 63, 24)
-          : const Color.fromARGB(255, 213, 252, 233),
+      backgroundColor: isDarkMode ? Colors.blue[400] : Colors.blue[100],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor:
-            isDarkMode ? Color.fromARGB(255, 27, 81, 50) : Colors.green,
+        backgroundColor: isDarkMode ? Colors.blue[100] : Colors.blue[400],
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
           BottomNavigationBarItem(icon: Icon(Icons.circle), label: "Home"),
@@ -80,13 +89,8 @@ class MainPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: const Text(
-                  "Title That Could Possible Be Very Long Goes Here",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold),
-                ),
+                child: Text("Title That Could Possible Be Very Long Goes Here",
+                    style: textStyle),
               ),
             ),
             const SizedBox(
@@ -96,13 +100,9 @@ class MainPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: const Text(
-                  "Description that could even more possibly be pretty long goes here",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal),
-                ),
+                child: Text(
+                    "Description that could even more possibly be pretty long goes here",
+                    style: descriptionStyle),
               ),
             ),
             const SizedBox(
@@ -115,15 +115,9 @@ class MainPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(),
                 ),
                 onPressed: () => print("Roll challenges"),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Roll Challenges",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold),
-                  ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Roll Challenges", style: textStyle),
                 ),
               ),
             ),
@@ -133,16 +127,12 @@ class MainPage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   shape: const RoundedRectangleBorder(),
                 ),
-                onPressed: () => print("List Of Challenges"),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "List Of Challenges",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold),
-                  ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/list_challenges');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("List Of Challenges", style: textStyle),
                 ),
               ),
             ),
@@ -153,15 +143,9 @@ class MainPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(),
                 ),
                 onPressed: () => print("Previous Challenges"),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Previous Challenges",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold),
-                  ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Previous Challenges", style: textStyle),
                 ),
               ),
             ),

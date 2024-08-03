@@ -1,4 +1,5 @@
 import 'package:ecoquest/pages/main_page.dart';
+import 'package:ecoquest/pages/list_challenges_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,6 +33,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) =>
             MainPage(toggleTheme: _toggleTheme, isDarkMode: _isDarkMode),
+        '/list_challenges': (context) =>
+            ListChallengesPage(isDarkMode: _isDarkMode),
       },
     );
   }
