@@ -18,32 +18,34 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = false;
+
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Text("Welcome"),
-            AppButton(buttonText: "Continue", onPressed: () {
-              ChallengePreferences.addChallenge(Challenge(
-                title: "No Plastic Straws", 
-                description: "Try not to use plastic straws this week.", 
-                active: false
-              ));
-              ChallengePreferences.addChallenge(Challenge(
-                title: "Lightning Shower", 
-                description: "Reduce shower time to 5 minutes to save water.", 
-                active: false
-              ));
+        body: Center(
+            child: Column(
+      children: [
+        Text("Welcome"),
+        AppButton(
+          buttonText: "Continue",
+          onPressed: () {
+            ChallengePreferences.addChallenge(Challenge(
+                title: "No Plastic Straws",
+                description: "Try not to use plastic straws this week.",
+                active: false));
+            ChallengePreferences.addChallenge(Challenge(
+                title: "Lightning Shower",
+                description: "Reduce shower time to 5 minutes to save water.",
+                active: false));
 
-              ChallengePreferences.activateRandomChallenge();
+            ChallengePreferences.activateRandomChallenge();
 
-              ChallengePreferences.printChallengeList();
+            ChallengePreferences.printChallengeList();
 
-              Navigator.of(context).pushReplacementNamed(AppRoutes.mainPage);
-            })
-          ],
-        )
-      )
-    );
+            Navigator.of(context).pushReplacementNamed(AppRoutes.mainPage);
+          },
+          textColor: isDarkMode ? Colors.white : Colors.black,
+        ),
+      ],
+    )));
   }
 }

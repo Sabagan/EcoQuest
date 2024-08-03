@@ -34,17 +34,17 @@ class _MainPageState extends State<MainPage> {
     );
 
     final descriptionStyle = TextStyle(
-      color: widget.isDarkMode ? Colors.white : Colors.black,
+      color: widget.isDarkMode ? Colors.white70 : Colors.black87,
       fontSize: 16,
       fontWeight: FontWeight.normal,
     );
 
     return Scaffold(
-      backgroundColor: widget.isDarkMode ? Colors.blue[400] : Colors.blue[100],
+      backgroundColor: widget.isDarkMode ? Colors.blue[800] : Colors.blue[400],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor:
-            widget.isDarkMode ? Colors.blue[100] : Colors.blue[400],
-        items: [
+            widget.isDarkMode ? Colors.blue[400] : Colors.blue[800],
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
           BottomNavigationBarItem(icon: Icon(Icons.circle), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.arrow_back), label: "Back"),
@@ -52,7 +52,7 @@ class _MainPageState extends State<MainPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => ChallengePreferences.resetPrefs(),
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -142,7 +142,8 @@ class _MainPageState extends State<MainPage> {
                     Text(
                       currentActiveChallenge!.title,
                       style: TextStyle(
-                          color: Colors.black,
+                          color:
+                              widget.isDarkMode ? Colors.white : Colors.black,
                           fontSize: 24,
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
@@ -170,16 +171,19 @@ class _MainPageState extends State<MainPage> {
                                 currentActiveChallenge!.id!);
                       });
                     },
+                    textColor: widget.isDarkMode ? Colors.white : Colors.black,
                   ),
                   AppButton(
                     buttonText: "List Of Challenges",
                     onPressed: () => Navigator.of(context)
                         .pushNamed(AppRoutes.challengeList),
+                    textColor: widget.isDarkMode ? Colors.white : Colors.black,
                   ),
                   AppButton(
                     buttonText: "Previous Challenges",
                     onPressed: () => Navigator.of(context)
                         .pushNamed(AppRoutes.previousChallenges),
+                    textColor: widget.isDarkMode ? Colors.white : Colors.black,
                   ),
                 ],
               ),
