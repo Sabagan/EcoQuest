@@ -3,7 +3,7 @@ class Challenge {
   final String title;
   final String description;
   final String? image;
-  final bool active;
+  bool active;
 
   Challenge({
     this.id,

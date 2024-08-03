@@ -1,3 +1,7 @@
+import 'package:ecoquest/components/app_button.dart';
+import 'package:ecoquest/model/challenge.dart';
+import 'package:ecoquest/utils/app_routes.dart';
+import 'package:ecoquest/utils/challenge_preferences.dart';
 import 'package:flutter/material.dart';
 
 /* 
@@ -15,7 +19,31 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Welcome")),
+      body: Center(
+        child: Column(
+          children: [
+            Text("Welcome"),
+            AppButton(buttonText: "Continue", onPressed: () {
+              ChallengePreferences.addChallenge(Challenge(
+                title: "No Plastic Straws", 
+                description: "Try not to use plastic straws this week.", 
+                active: false
+              ));
+              ChallengePreferences.addChallenge(Challenge(
+                title: "Lightning Shower", 
+                description: "Reduce shower time to 5 minutes to save water.", 
+                active: false
+              ));
+
+              ChallengePreferences.activateRandomChallenge();
+
+              ChallengePreferences.printChallengeList();
+
+              Navigator.of(context).pushReplacementNamed(AppRoutes.mainPage);
+            })
+          ],
+        )
+      )
     );
   }
 }

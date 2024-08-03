@@ -17,12 +17,13 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    currentActiveChallenge = ChallengePreferences.getActiveChallenge() ?? Challenge(title: "NA", description: "NA", active: false);
+    currentActiveChallenge = ChallengePreferences.getCurrentActiveChallenge() ?? Challenge(title: "NA", description: "NA", active: false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () => ChallengePreferences.resetPrefs(), ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -81,7 +82,11 @@ class _MainPageState extends State<MainPage> {
                 children: [
                   AppButton(
                     buttonText: "Roll Challenges", 
-                    onPressed: () => ChallengePreferences.resetPrefs(),),
+                    onPressed: () {
+                      setState(() {
+                        currentActiveChallenge = ChallengePreferences.rollRandomChallenge(currentActiveChallenge!.id!);
+                      });
+                    },),
                   AppButton(
                     buttonText: "List Of Challenges", 
                     onPressed: () => Navigator.of(context).pushNamed(AppRoutes.challengeList)),
