@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color.fromARGB(255, 224, 255, 240),
         brightness: Brightness.light
       ),
-      initialRoute: ChallengePreferences.isFirstLaunch() ? '/welcome':'/',
+      initialRoute: !ChallengePreferences.isFirstLaunch() ? '/welcome':'/',
       routes: {
         AppRoutes.mainPage : (build) => MainPage(),
         AppRoutes.challengeList : (build) => ChallengeList(),
