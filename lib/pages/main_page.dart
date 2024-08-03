@@ -40,7 +40,9 @@ class _MainPageState extends State<MainPage> {
     );
 
     return Scaffold(
-      backgroundColor: widget.isDarkMode ? Colors.blue[800] : Colors.blue[400],
+      backgroundColor: widget.isDarkMode
+          ? Colors.blue[900]
+          : Color.fromARGB(255, 148, 186, 218),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor:
             widget.isDarkMode ? Colors.blue[400] : Colors.blue[800],
@@ -106,10 +108,11 @@ class _MainPageState extends State<MainPage> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Text(
                   "Title That Could Possibly Be Very Long Goes Here",
                   style: textStyle,
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
@@ -117,9 +120,10 @@ class _MainPageState extends State<MainPage> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Text(
                   "Description that could even more possibly be pretty long goes here",
+                  textAlign: TextAlign.center,
                   style: descriptionStyle,
                 ),
               ),
@@ -134,7 +138,7 @@ class _MainPageState extends State<MainPage> {
                     const Text(
                       "Your Challenge This Week:",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.amber,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),

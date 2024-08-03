@@ -36,7 +36,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: _isDarkMode ? Colors.blue : Colors.lightBlue,
+        scaffoldBackgroundColor:
+            _isDarkMode ? Colors.blue[900] : Colors.blue[100],
         brightness: _isDarkMode ? Brightness.dark : Brightness.light,
       ),
       initialRoute: ChallengePreferences.isFirstLaunch()

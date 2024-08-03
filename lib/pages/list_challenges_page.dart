@@ -108,9 +108,10 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('List of Challenges'),
-        backgroundColor:
-            widget.isDarkMode ? Colors.blue[700] : Colors.blue[300],
+        title: Text('List of Challenges',
+            style: TextStyle(
+                color: widget.isDarkMode ? Colors.white : Colors.black)),
+        backgroundColor: widget.isDarkMode ? Colors.black : Colors.white,
         actions: [
           IconButton(
             icon: Icon(Icons.brightness_6),
@@ -125,7 +126,7 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
           itemBuilder: (context, index) {
             final challenge = _challenges[index];
             return Card(
-              color: widget.isDarkMode ? Colors.blue[900] : Colors.white,
+              color: widget.isDarkMode ? Colors.blue[200] : Colors.blue[900],
               margin: const EdgeInsets.symmetric(vertical: 8.0),
               elevation: 4,
               child: ListTile(
@@ -133,7 +134,7 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
                 title: Text(
                   challenge.title,
                   style: TextStyle(
-                    color: widget.isDarkMode ? Colors.white : Colors.black,
+                    color: widget.isDarkMode ? Colors.black : Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -141,13 +142,13 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
                 subtitle: Text(
                   challenge.description,
                   style: TextStyle(
-                    color: widget.isDarkMode ? Colors.white70 : Colors.black87,
+                    color: widget.isDarkMode ? Colors.black87 : Colors.white70,
                     fontSize: 16,
                   ),
                 ),
                 leading: Icon(
                   Icons.eco,
-                  color: widget.isDarkMode ? Colors.greenAccent : Colors.green,
+                  color: widget.isDarkMode ? Colors.green[700] : Colors.green,
                 ),
               ),
             );
@@ -157,8 +158,7 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _addCustomChallenge,
         child: Icon(Icons.add),
-        backgroundColor:
-            widget.isDarkMode ? Colors.blue[700] : Colors.blue[300],
+        backgroundColor: widget.isDarkMode ? Colors.black : Colors.white,
       ),
     );
   }
