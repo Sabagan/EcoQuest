@@ -5,21 +5,34 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _isDarkMode = false;
+
+  void _toggleTheme() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.green,
-        brightness: Brightness.light
+        scaffoldBackgroundColor: _isDarkMode ? Colors.green : Colors.lightGreen,
+        brightness: _isDarkMode ? Brightness.dark : Brightness.light,
       ),
       initialRoute: '/',
       routes: {
-        '/' : (build) => MainPage()
-      }
+        '/': (context) =>
+            MainPage(toggleTheme: _toggleTheme, isDarkMode: _isDarkMode),
+      },
     );
   }
 }
