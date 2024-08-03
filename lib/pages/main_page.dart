@@ -1,5 +1,7 @@
 import 'package:ecoquest/components/app_button.dart';
+import 'package:ecoquest/model/challenge.dart';
 import 'package:ecoquest/utils/app_routes.dart';
+import 'package:ecoquest/utils/challenge_preferences.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -66,7 +68,7 @@ class MainPage extends StatelessWidget {
                 children: [
                   AppButton(
                     buttonText: "Roll Challenges", 
-                    onPressed: () => print("Roll Challenges"),),
+                    onPressed: () => ChallengePreferences.resetPrefs(),),
                   AppButton(
                     buttonText: "List Of Challenges", 
                     onPressed: () => Navigator.of(context).pushNamed(AppRoutes.challengeList)),

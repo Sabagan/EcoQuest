@@ -1,10 +1,19 @@
+import 'package:ecoquest/model/challenge.dart';
 import 'package:ecoquest/pages/challenge_list.dart';
 import 'package:ecoquest/pages/main_page.dart';
 import 'package:ecoquest/pages/previous_challenges.dart';
+import 'package:ecoquest/pages/welcome_page.dart';
 import 'package:ecoquest/utils/app_routes.dart';
+import 'package:ecoquest/utils/challenge_preferences.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await ChallengePreferences.init();
+
+  ChallengePreferences.printChallengeList();
+
   runApp(MyApp());
 }
 
@@ -19,11 +28,12 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color.fromARGB(255, 224, 255, 240),
         brightness: Brightness.light
       ),
-      initialRoute: '/',
+      initialRoute: ChallengePreferences.isFirstLaunch() ? '/welcome':'/',
       routes: {
         AppRoutes.mainPage : (build) => MainPage(),
         AppRoutes.challengeList : (build) => ChallengeList(),
-        AppRoutes.previousChallenges : (build) => PreviousChallenges()
+        AppRoutes.previousChallenges : (build) => PreviousChallenges(),
+        AppRoutes.welcome : (build) => WelcomePage()
       }
     );
   }
