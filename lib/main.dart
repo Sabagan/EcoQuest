@@ -1,8 +1,18 @@
+import 'package:flutter/material.dart';
 import 'package:ecoquest/pages/list_challenges_page.dart';
 import 'package:ecoquest/pages/main_page.dart';
-import 'package:flutter/material.dart';
+import 'package:ecoquest/pages/previous_challenges.dart';
+import 'package:ecoquest/pages/welcome_page.dart';
+import 'package:ecoquest/utils/app_routes.dart';
+import 'package:ecoquest/utils/challenge_preferences.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await ChallengePreferences.init();
+
+  ChallengePreferences.printChallengeList();
+
   runApp(MyApp());
 }
 
@@ -29,12 +39,16 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: _isDarkMode ? Colors.blue : Colors.lightBlue,
         brightness: _isDarkMode ? Brightness.dark : Brightness.light,
       ),
-      initialRoute: '/',
+      initialRoute: ChallengePreferences.isFirstLaunch()
+          ? AppRoutes.welcome
+          : AppRoutes.mainPage,
       routes: {
-        '/': (context) =>
+        AppRoutes.mainPage: (context) =>
             MainPage(toggleTheme: _toggleTheme, isDarkMode: _isDarkMode),
-        '/list_challenges': (context) =>
+        AppRoutes.challengeList: (context) =>
             ListChallengesPage(isDarkMode: _isDarkMode),
+        AppRoutes.previousChallenges: (context) => PreviousChallenges(),
+        AppRoutes.welcome: (context) => WelcomePage(),
       },
     );
   }
