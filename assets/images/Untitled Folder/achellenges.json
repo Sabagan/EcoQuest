@@ -7,7 +7,6 @@
     "image": "An image of a timer next to a showerhead."
   },
   {
-// this didn't work
     "id": 2,
     "title": "Lights Out",
     "description": "Turn off lights when leaving a room.",
@@ -252,7 +251,6 @@
     "difficulty": 3,
     "image": "An image of a homemade compost bin with food scraps and a lush garden or plants growing around it."
   },
-// I stopped here
   {
     "id": 37,
     "title": "Beauty Boss",
