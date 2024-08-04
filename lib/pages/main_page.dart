@@ -108,12 +108,12 @@ class _MainPageState extends State<MainPage> {
             ),
             const SizedBox(height: 24),
             Container(
-              height: min(screenW * 0.8, screenH * 0.4),
-              width: min(screenW * 0.8, screenH * 0.4),
+              height: min(screenW * 0.6, screenH * 0.3),
+              width: min(screenW * 0.6, screenH * 0.3),
               color: Colors.black38,
               child: Center(
                   child: Image.asset(
-                '../assets/images/$number.png',
+                'assets/images/$number.png',
                 fit: BoxFit.cover,
               )),
             ),
@@ -150,7 +150,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
             ),
-            const Spacer(),
+            const SizedBox(height: 24),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Column(
