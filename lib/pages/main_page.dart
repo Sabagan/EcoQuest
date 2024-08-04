@@ -173,7 +173,7 @@ class _MainPageState extends State<MainPage> {
                     textColor: widget.isDarkMode ? Colors.white : Colors.black,
                   ),
                   AppButton(
-                    buttonText: "Previous Challenges",
+                    buttonText: "Leaderboard",
                     onPressed: () => Navigator.of(context)
                         .pushNamed(AppRoutes.previousChallenges),
                     textColor: widget.isDarkMode ? Colors.white : Colors.black,

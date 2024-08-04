@@ -7,9 +7,11 @@ class PreviousChallenges extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Previous Challenges"),
+        title: const Text("Leaderboard"),
       ),
-      body: Center(child: Text("Previous Challenges"),),
+      body: Center(
+        child: Text("Coming Soon ..."),
+      ),
     );
   }
 }
