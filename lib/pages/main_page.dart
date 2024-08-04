@@ -41,15 +41,6 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       backgroundColor: widget.isDarkMode ? Colors.blue[400] : Colors.blue[100],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor:
-            widget.isDarkMode ? Colors.blue[100] : Colors.blue[400],
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
-          BottomNavigationBarItem(icon: Icon(Icons.circle), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.arrow_back), label: "Back"),
-        ],
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => ChallengePreferences.resetPrefs(),
         child: Icon(Icons.refresh),
