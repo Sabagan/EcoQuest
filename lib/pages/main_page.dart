@@ -40,7 +40,7 @@ class _MainPageState extends State<MainPage> {
       fontWeight: FontWeight.normal,
     );
 
-    int? number = currentActiveChallenge!.id;
+    int number = min(currentActiveChallenge!.id!, 51);
     double screenH = MediaQuery.of(context).size.height;
     double screenW = MediaQuery.of(context).size.width;
     return Scaffold(
