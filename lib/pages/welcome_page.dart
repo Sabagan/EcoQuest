@@ -28,14 +28,13 @@ class WelcomePage extends StatelessWidget {
         AppButton(
           buttonText: "Continue",
           onPressed: () {
-            ChallengePreferences.addChallenge(Challenge(
-                title: "No Plastic Straws",
-                description: "Try not to use plastic straws this week.",
-                active: false));
-            ChallengePreferences.addChallenge(Challenge(
-                title: "Lightning Shower",
-                description: "Reduce shower time to 5 minutes to save water.",
-                active: false));
+            for (var challenge in challengesList) {
+              ChallengePreferences.addChallenge(Challenge(
+                title: challenge['title'],
+                description: challenge['description'],
+                active: false, // Assuming active is always false initially
+              ));
+            }
 
             ChallengePreferences.activateRandomChallenge();
 
@@ -49,3 +48,363 @@ class WelcomePage extends StatelessWidget {
     )));
   }
 }
+
+List<Map<String, dynamic>> challengesList = [
+  {
+    "id": 1,
+    "title": "Lightning Shower",
+    "description": "Reduce shower time to 5 minutes.",
+    "difficulty": 2,
+    "image": "An image of a timer next to a showerhead."
+  },
+  {
+    "id": 2,
+    "title": "Lights Out",
+    "description": "Turn off lights when leaving a room.",
+    "difficulty": 1,
+    "image":
+        "An image of boxes (rooms) in a 2x2 grid, where ONLY one of them is lit."
+  },
+  {
+    "id": 3,
+    "title": "Bottle Buddy",
+    "description": "Use a reusable water bottle.",
+    "difficulty": 1,
+    "image": "An image of a bottle with a tree logo on it"
+  },
+  {
+    "id": 4,
+    "title": "Bag Brigade",
+    "description": "Bring a reusable bag for shopping.",
+    "difficulty": 1,
+    "image": "An image of a grocery bag with a tree logo with groceries inside."
+  },
+  {
+    "id": 5,
+    "title": "Green Bulbs",
+    "description": "Switch to energy-efficient light bulbs.",
+    "difficulty": 2,
+    "image": "An image of a bulb where the glass part is just a tree."
+  },
+  {
+    "id": 6,
+    "title": "Tree Hugger",
+    "description": "Plant a tree.",
+    "difficulty": 4,
+    "image": "An image of a sapling being planted in soil."
+  },
+  {
+    "id": 7,
+    "title": "Veggie Victory",
+    "description": "Go meat-free for a day.",
+    "difficulty": 2,
+    "image": "An image of a colorful plate of vegetables."
+  },
+  {
+    "id": 8,
+    "title": "Eco Tides",
+    "description": "Use public transportation or carpool.",
+    "difficulty": 3,
+    "image": "An image of a bus or carpooling group."
+  },
+  {
+    "id": 9,
+    "title": "Compost King",
+    "description": "Start a compost bin.",
+    "difficulty": 3,
+    "image": "An image of a compost bin with food scraps."
+  },
+  {
+    "id": 10,
+    "title": "Anti-Polymer",
+    "description": "Avoid single-use plastics",
+    "difficulty": 4,
+    "image": "An image of a crushed water bottle with a prohibition sign."
+  },
+  {
+    "id": 11,
+    "title": "Recycle Rockstar",
+    "description": "Recycle paper, plastic, and glass.",
+    "difficulty": 1,
+    "image": "An image of 3 coloured recycling bins with sorted materials."
+  },
+  {
+    "id": 12,
+    "title": "Walk 'n' Roll",
+    "description": "Take a walk or bike instead of driving.",
+    "difficulty": 2,
+    "image": "An image of shoes and an image of a bike."
+  },
+  {
+    "id": 13,
+    "title": "Cup Crusader",
+    "description": "Use a reusable coffee cup.",
+    "difficulty": 1,
+    "image": "An image of a reusable coffee cup."
+  },
+  {
+    "id": 14,
+    "title": "Closet Champ",
+    "description": "Donate old clothes instead of throwing them away.",
+    "difficulty": 2,
+    "image": "An image of a box with a donation symbol filled with clothes."
+  },
+  {
+    "id": 15,
+    "title": "Neighborhood Ninja",
+    "description": "Pick up litter in your neighborhood.",
+    "difficulty": 2,
+    "image": "An image of a neighbourhood sidewalk with sparkle stars."
+  },
+  {
+    "id": 16,
+    "title": "Breeze Master",
+    "description": "Use a clothesline instead of a dryer.",
+    "difficulty": 2,
+    "image": "An image of clothes hanging on a clothesline."
+  },
+  {
+    "id": 17,
+    "title": "Meal-Prep Madness",
+    "description": "Reduce food waste by planning meals.",
+    "difficulty": 3,
+    "image": "An image of a meal plan on a calendar."
+  },
+  {
+    "id": 18,
+    "title": "Green Energy Guru",
+    "description": "Switch to a green energy provider.",
+    "difficulty": 4,
+    "image": "An image of a solar panel or wind turbine."
+  },
+  {
+    "id": 19,
+    "title": "Unplugged Explorer",
+    "description": "Take a day off from using electronics.",
+    "difficulty": 3,
+    "image":
+        "An image of a picnic mat with the picnic basket that has food in it."
+  },
+  {
+    "id": 20,
+    "title": "Market Marvel",
+    "description": "Support a local farmer's market.",
+    "difficulty": 2,
+    "image": "An image of a bustling farmer's market with fresh produce."
+  },
+  {
+    "id": 21,
+    "title": "Palm Oil Paladin",
+    "description": "Avoid products with palm oil.",
+    "difficulty": 3,
+    "image":
+        "An image of a product ingredient list with a prohibition sign on a palm tree."
+  },
+  {
+    "id": 22,
+    "title": "Secondhand Superstar",
+    "description": "Buy second-hand items instead of new ones.",
+    "difficulty": 2,
+    "image": "An image of a thrift store or second-hand shop."
+  },
+  {
+    "id": 23,
+    "title": "Showerhead Superstar",
+    "description": "Install a water-saving showerhead.",
+    "difficulty": 3,
+    "image": "An image of a showerhead and an image of a water meter."
+  },
+  {
+    "id": 24,
+    "title": "Green Clean",
+    "description": "Use natural cleaning products.",
+    "difficulty": 2,
+    "image": "An image of cleaning products each with a tree logo on it."
+  },
+  {
+    "id": 25,
+    "title": "Garden Guardian",
+    "description": "Grow your own herbs or vegetables.",
+    "difficulty": 4,
+    "image": "An image of a small farm in the backyard of a home."
+  },
+  {
+    "id": 26,
+    "title": "Eco Scholar",
+    "description": "Educate yourself about an environmental issue.",
+    "difficulty": 2,
+    "image": "An image of an open book with diagrams of the environment."
+  },
+  {
+    "id": 27,
+    "title": "Charity Champion",
+    "description": "Donate to an environmental charity.",
+    "difficulty": 2,
+    "image": "An image of charity money on a tree."
+  },
+  {
+    "id": 28,
+    "title": "Packaging Prodigy",
+    "description": "Avoid products with excessive packaging.",
+    "difficulty": 3,
+    "image": "An image of an amazon shipping box"
+  },
+  {
+    "id": 29,
+    "title": "Event Enthusiast",
+    "description": "Participate in a local environmental event.",
+    "difficulty": 3,
+    "image": "An image of a plastic bottle being picked up by a tool."
+  },
+  {
+    "id": 30,
+    "title": "Paperless Pioneer",
+    "description": "Switch to paperless billing.",
+    "difficulty": 2,
+    "image": "An image of a laptop screen showing an online billing statement."
+  },
+  {
+    "id": 31,
+    "title": "Drip Defender",
+    "description": "Turn off the tap while brushing teeth.",
+    "difficulty": 1,
+    "image": "An image of a faucet that is turned off."
+  },
+  {
+    "id": 32,
+    "title": "Straw Star",
+    "description": "Use a reusable straw, but not a metal one!",
+    "difficulty": 1,
+    "image": "An image of a reusable bamboo straw."
+  },
+  {
+    "id": 33,
+    "title": "Wardrobe Wizard",
+    "description": "Avoid fast fashion and buy sustainable clothing.",
+    "difficulty": 3,
+    "image": "An image of green clothing items."
+  },
+  {
+    "id": 34,
+    "title": "Wildlife Guardian",
+    "description": "Create a wildlife-friendly garden.",
+    "difficulty": 4,
+    "image": "An image of a garden with birdhouses and native plants."
+  },
+  {
+    "id": 35,
+    "title": "Flight Fight",
+    "description": "Reduce air travel.",
+    "difficulty": 4,
+    "image": "An image of a globe with a no-airplane symbol."
+  },
+  {
+    "id": 36,
+    "title": "Trash Triumph",
+    "description": "Make a compost bin for your kitchen waste.",
+    "difficulty": 3,
+    "image": "An image of a homemade compost bin with food scraps and worms."
+  },
+  // I stopped fine-tuning these after 36
+  {
+    "id": 37,
+    "title": "Beauty Boss",
+    "description": "Make your own beauty products.",
+    "difficulty": 4,
+    "image": "An image of homemade beauty products in jars."
+  },
+  {
+    "id": 38,
+    "title": "Support Savvy",
+    "description": "Support businesses that practice sustainability.",
+    "difficulty": 3,
+    "image": "An image of a store with a 'sustainable' sign."
+  },
+  {
+    "id": 39,
+    "title": "Bottle Banisher",
+    "description": "Avoid bottled water.",
+    "difficulty": 1,
+    "image":
+        "An image of a reusable water bottle with a cross over a plastic bottle."
+  },
+  {
+    "id": 40,
+    "title": "Hankie Hero",
+    "description": "Use a handkerchief instead of tissues.",
+    "difficulty": 2,
+    "image": "An image of a handkerchief with a green leaf design."
+  },
+  {
+    "id": 41,
+    "title": "Bulk Buying Beast",
+    "description": "Buy products in bulk to reduce packaging.",
+    "difficulty": 3,
+    "image": "An image of bulk food bins in a store."
+  },
+  {
+    "id": 42,
+    "title": "Wrap Wiz",
+    "description": "Avoid using plastic wrap; use beeswax wraps instead.",
+    "difficulty": 3,
+    "image": "An image of beeswax wraps covering food."
+  },
+  {
+    "id": 43,
+    "title": "Volunteer Virtuoso",
+    "description": "Donate to or volunteer for an environmental organization.",
+    "difficulty": 3,
+    "image": "An image of people volunteering at an environmental organization."
+  },
+  {
+    "id": 44,
+    "title": "Razor Rebel",
+    "description": "Replace disposable razors with a safety razor.",
+    "difficulty": 3,
+    "image": "An image of a safety razor."
+  },
+  {
+    "id": 45,
+    "title": "Thermostat Titan",
+    "description": "Reduce heating and cooling by adjusting your thermostat.",
+    "difficulty": 2,
+    "image": "An image of a thermostat being adjusted."
+  },
+  {
+    "id": 46,
+    "title": "Eco Educator",
+    "description": "Educate friends and family about environmental issues.",
+    "difficulty": 2,
+    "image":
+        "An image of a person giving a presentation about environmental issues."
+  },
+  {
+    "id": 47,
+    "title": "Carbon Calculator Champ",
+    "description": "Calculate and offset your carbon footprint.",
+    "difficulty": 4,
+    "image": "An image of a carbon footprint calculator."
+  },
+  {
+    "id": 48,
+    "title": "Ticket Titan",
+    "description": "Choose e-tickets over paper tickets.",
+    "difficulty": 1,
+    "image": "An image of an e-ticket on a smartphone."
+  },
+  {
+    "id": 49,
+    "title": "Earth Hour Hero",
+    "description":
+        "Participate in Earth Hour by turning off all lights for one hour.",
+    "difficulty": 2,
+    "image": "An image of a city skyline with lights turned off."
+  },
+  {
+    "id": 50,
+    "title": "Policy Proponent",
+    "description": "Advocate for environmental policies in your community.",
+    "difficulty": 4,
+    "image": "An image of a person speaking at a community meeting."
+  }
+];
