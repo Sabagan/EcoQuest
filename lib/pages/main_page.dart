@@ -63,9 +63,27 @@ class _MainPageState extends State<MainPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(
-                  onPressed: widget.toggleTheme,
-                  child: const Text("Toggle Light/Dark Mode"),
+                Row(
+                  children: [
+                    Text(
+                      'Light Mode',
+                      style: TextStyle(
+                        color: widget.isDarkMode ? Colors.white : Colors.black,
+                      ),
+                    ),
+                    Switch(
+                      value: widget.isDarkMode,
+                      onChanged: (bool value) {
+                        widget.toggleTheme();
+                      },
+                    ),
+                    Text(
+                      'Dark Mode',
+                      style: TextStyle(
+                        color: widget.isDarkMode ? Colors.white : Colors.black,
+                      ),
+                    ),
+                  ],
                 ),
                 Row(
                   children: [

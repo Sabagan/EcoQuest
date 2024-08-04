@@ -79,43 +79,33 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
     );
   }
 
-  void _showThemeDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Select Theme Mode'),
-          content: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Light Mode'),
-              Switch(
-                value: widget.isDarkMode,
-                onChanged: (bool value) {
-                  Navigator.of(context).pop();
-                  widget.onThemeChanged(value);
-                },
-              ),
-              Text('Dark Mode'),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('List of Challenges',
-            style: TextStyle(
-                color: widget.isDarkMode ? Colors.white : Colors.black)),
+        title: Text(
+          'List of Challenges',
+          style: TextStyle(
+            color: widget.isDarkMode ? Colors.white : Colors.black,
+          ),
+        ),
         backgroundColor: widget.isDarkMode ? Colors.black : Colors.white,
         actions: [
-          IconButton(
-            icon: Icon(Icons.brightness_6),
-            onPressed: _showThemeDialog,
+          Row(
+            children: [
+              Text(
+                widget.isDarkMode ? 'Dark Mode' : 'Light Mode',
+                style: TextStyle(
+                  color: widget.isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+              Switch(
+                value: widget.isDarkMode,
+                onChanged: (bool value) {
+                  widget.onThemeChanged(value);
+                },
+              ),
+            ],
           ),
         ],
       ),
