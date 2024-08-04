@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     currentActiveChallenge = ChallengePreferences.getCurrentActiveChallenge() ??
-        Challenge(title: "NA", description: "NA", active: false);
+        Challenge(title: "NA", description: "NA", active: false, image: "assets/images/51.png");
   }
 
   @override
@@ -41,7 +41,6 @@ class _MainPageState extends State<MainPage> {
       fontWeight: FontWeight.normal,
     );
 
-    int number = min(currentActiveChallenge!.id!, 51);
     double screenH = MediaQuery.of(context).size.height;
     double screenW = MediaQuery.of(context).size.width;
 
@@ -138,10 +137,9 @@ class _MainPageState extends State<MainPage> {
             Container(
               height: min(screenW * 0.6, screenH * 0.3),
               width: min(screenW * 0.6, screenH * 0.3),
-              color: Colors.black38,
               child: Center(
                   child: Image.asset(
-                'assets/images/$number.png',
+                currentActiveChallenge!.image ?? "assets/images/51.png",
                 fit: BoxFit.cover,
               )),
             ),

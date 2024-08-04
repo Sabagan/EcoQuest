@@ -32,13 +32,16 @@ class WelcomePage extends StatelessWidget {
               ChallengePreferences.addChallenge(Challenge(
                 title: challenge['title'],
                 description: challenge['description'],
-                active: false, // Assuming active is always false initially
+                active: false,
+                image: 'assets/images/${challenge['id'] <= 30 ? challenge['id']:51}.png' // Assuming active is always false initially
               ));
             }
 
             ChallengePreferences.activateRandomChallenge();
 
             ChallengePreferences.printChallengeList();
+
+            print("done");
 
             Navigator.of(context).pushReplacementNamed(AppRoutes.mainPage);
           },
@@ -263,148 +266,4 @@ List<Map<String, dynamic>> challengesList = [
     "difficulty": 2,
     "image": "An image of a laptop screen showing an online billing statement."
   },
-  {
-    "id": 31,
-    "title": "Drip Defender",
-    "description": "Turn off the tap while brushing teeth.",
-    "difficulty": 1,
-    "image": "An image of a faucet that is turned off."
-  },
-  {
-    "id": 32,
-    "title": "Straw Star",
-    "description": "Use a reusable straw, but not a metal one!",
-    "difficulty": 1,
-    "image": "An image of a reusable bamboo straw."
-  },
-  {
-    "id": 33,
-    "title": "Wardrobe Wizard",
-    "description": "Avoid fast fashion and buy sustainable clothing.",
-    "difficulty": 3,
-    "image": "An image of green clothing items."
-  },
-  {
-    "id": 34,
-    "title": "Wildlife Guardian",
-    "description": "Create a wildlife-friendly garden.",
-    "difficulty": 4,
-    "image": "An image of a garden with birdhouses and native plants."
-  },
-  {
-    "id": 35,
-    "title": "Flight Fight",
-    "description": "Reduce air travel.",
-    "difficulty": 4,
-    "image": "An image of a globe with a no-airplane symbol."
-  },
-  {
-    "id": 36,
-    "title": "Trash Triumph",
-    "description": "Make a compost bin for your kitchen waste.",
-    "difficulty": 3,
-    "image": "An image of a homemade compost bin with food scraps and worms."
-  },
-  // I stopped fine-tuning these after 36
-  {
-    "id": 37,
-    "title": "Beauty Boss",
-    "description": "Make your own beauty products.",
-    "difficulty": 4,
-    "image": "An image of homemade beauty products in jars."
-  },
-  {
-    "id": 38,
-    "title": "Support Savvy",
-    "description": "Support businesses that practice sustainability.",
-    "difficulty": 3,
-    "image": "An image of a store with a 'sustainable' sign."
-  },
-  {
-    "id": 39,
-    "title": "Bottle Banisher",
-    "description": "Avoid bottled water.",
-    "difficulty": 1,
-    "image":
-        "An image of a reusable water bottle with a cross over a plastic bottle."
-  },
-  {
-    "id": 40,
-    "title": "Hankie Hero",
-    "description": "Use a handkerchief instead of tissues.",
-    "difficulty": 2,
-    "image": "An image of a handkerchief with a green leaf design."
-  },
-  {
-    "id": 41,
-    "title": "Bulk Buying Beast",
-    "description": "Buy products in bulk to reduce packaging.",
-    "difficulty": 3,
-    "image": "An image of bulk food bins in a store."
-  },
-  {
-    "id": 42,
-    "title": "Wrap Wiz",
-    "description": "Avoid using plastic wrap; use beeswax wraps instead.",
-    "difficulty": 3,
-    "image": "An image of beeswax wraps covering food."
-  },
-  {
-    "id": 43,
-    "title": "Volunteer Virtuoso",
-    "description": "Donate to or volunteer for an environmental organization.",
-    "difficulty": 3,
-    "image": "An image of people volunteering at an environmental organization."
-  },
-  {
-    "id": 44,
-    "title": "Razor Rebel",
-    "description": "Replace disposable razors with a safety razor.",
-    "difficulty": 3,
-    "image": "An image of a safety razor."
-  },
-  {
-    "id": 45,
-    "title": "Thermostat Titan",
-    "description": "Reduce heating and cooling by adjusting your thermostat.",
-    "difficulty": 2,
-    "image": "An image of a thermostat being adjusted."
-  },
-  {
-    "id": 46,
-    "title": "Eco Educator",
-    "description": "Educate friends and family about environmental issues.",
-    "difficulty": 2,
-    "image":
-        "An image of a person giving a presentation about environmental issues."
-  },
-  {
-    "id": 47,
-    "title": "Carbon Calculator Champ",
-    "description": "Calculate and offset your carbon footprint.",
-    "difficulty": 4,
-    "image": "An image of a carbon footprint calculator."
-  },
-  {
-    "id": 48,
-    "title": "Ticket Titan",
-    "description": "Choose e-tickets over paper tickets.",
-    "difficulty": 1,
-    "image": "An image of an e-ticket on a smartphone."
-  },
-  {
-    "id": 49,
-    "title": "Earth Hour Hero",
-    "description":
-        "Participate in Earth Hour by turning off all lights for one hour.",
-    "difficulty": 2,
-    "image": "An image of a city skyline with lights turned off."
-  },
-  {
-    "id": 50,
-    "title": "Policy Proponent",
-    "description": "Advocate for environmental policies in your community.",
-    "difficulty": 4,
-    "image": "An image of a person speaking at a community meeting."
-  }
 ];
