@@ -1,17 +1,9 @@
 import 'package:ecoquest/components/app_button.dart';
 import 'package:ecoquest/model/challenge.dart';
+import 'package:ecoquest/styles/app_text.dart';
 import 'package:ecoquest/utils/app_routes.dart';
 import 'package:ecoquest/utils/challenge_preferences.dart';
 import 'package:flutter/material.dart';
-
-/* 
- * Welcome user, display "thank you for your commitment" text
- * Let user set up theme color and choose light or dark mode
- * Make theme color green and set to light mode by default
- * Set up day of the week and time to get challenge (this data will then be accessed in SharedPreferences)
- * After user chooses when to get a challenge, activate the continue button  
- * When continue button clicked, roll a random challenge, then go to home page
- */
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -21,34 +13,46 @@ class WelcomePage extends StatelessWidget {
     final isDarkMode = false;
 
     return Scaffold(
-        body: Center(
-            child: Column(
-      children: [
-        Text("Welcome"),
-        AppButton(
-          buttonText: "Continue",
-          onPressed: () {
-            for (var challenge in challengesList) {
-              ChallengePreferences.addChallenge(Challenge(
-                title: challenge['title'],
-                description: challenge['description'],
-                active: false,
-                image: 'assets/images/${challenge['id'] <= 30 ? challenge['id']:51}.png' // Assuming active is always false initially
-              ));
-            }
-
-            ChallengePreferences.activateRandomChallenge();
-
-            ChallengePreferences.printChallengeList();
-
-            print("done");
-
-            Navigator.of(context).pushReplacementNamed(AppRoutes.mainPage);
-          },
-          textColor: isDarkMode ? Colors.white : Colors.black,
-        ),
-      ],
-    )));
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Center(
+              child: Column(
+                children: [
+          const Spacer(),
+          const Text("Welcome", style: AppText.buttonTextStyle,),
+          const SizedBox(height: 16,),
+          const Text(
+            "Thank you for your contributions! Click on the button below to start getting quests. Click the reroll button for new quests.", 
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16
+            ),  
+          ),
+          const SizedBox(height: 36,),
+          AppButton(
+            buttonText: "Continue",
+            onPressed: () {
+              for (var challenge in challengesList) {
+                ChallengePreferences.addChallenge(Challenge(
+                  title: challenge['title'],
+                  description: challenge['description'],
+                  active: false,
+                  image: 'assets/images/${challenge['id'] <= 30 ? challenge['id']:51}.png' // Assuming active is always false initially
+                ));
+              }
+          
+              ChallengePreferences.activateRandomChallenge();
+          
+              ChallengePreferences.printChallengeList();
+          
+              Navigator.of(context).pushReplacementNamed(AppRoutes.mainPage);
+            },
+            textColor: isDarkMode ? Colors.white : Colors.black,
+          ),
+          const Spacer()
+                ],
+              )),
+        ));
   }
 }
 
