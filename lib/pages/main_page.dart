@@ -43,19 +43,6 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: widget.isDarkMode
           ? Colors.blue[900]
           : Color.fromARGB(255, 148, 186, 218),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor:
-            widget.isDarkMode ? Colors.blue[400] : Colors.blue[800],
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
-          BottomNavigationBarItem(icon: Icon(Icons.circle), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.arrow_back), label: "Back"),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => ChallengePreferences.resetPrefs(),
-        child: const Icon(Icons.refresh),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
