@@ -3,6 +3,7 @@ import 'package:ecoquest/model/challenge.dart';
 import 'package:ecoquest/utils/app_routes.dart';
 import 'package:ecoquest/utils/challenge_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'dart:math';
 
 class MainPage extends StatefulWidget {
@@ -43,10 +44,11 @@ class _MainPageState extends State<MainPage> {
     int number = min(currentActiveChallenge!.id!, 51);
     double screenH = MediaQuery.of(context).size.height;
     double screenW = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: widget.isDarkMode
           ? const Color.fromARGB(255, 15, 28, 48)
-          : Color.fromARGB(255, 148, 186, 218),
+          : const Color.fromARGB(255, 148, 186, 218),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -56,24 +58,50 @@ class _MainPageState extends State<MainPage> {
               children: [
                 Row(
                   children: [
-                    Text(
-                      'Light Mode',
-                      style: TextStyle(
-                        color: widget.isDarkMode ? Colors.white : Colors.black,
-                      ),
-                    ),
-                    Switch(
+                    // Text(
+                    //   'Light Mode',
+                    //   style: TextStyle(
+                    //     color: widget.isDarkMode ? Colors.white : Colors.black,
+                    //   ),
+                    // ),
+                    FlutterSwitch(
                       value: widget.isDarkMode,
-                      onChanged: (bool value) {
+                      onToggle: (val) {
                         widget.toggleTheme();
                       },
-                    ),
-                    Text(
-                      'Dark Mode',
-                      style: TextStyle(
-                        color: widget.isDarkMode ? Colors.white : Colors.black,
+                      activeColor: Colors.black,
+                      inactiveColor: Colors.blue,
+                      activeToggleColor: Colors.white,
+                      inactiveToggleColor: Colors.orange,
+                      activeSwitchBorder: Border.all(
+                        color: Colors.black,
+                        width: 2.0,
                       ),
+                      inactiveSwitchBorder: Border.all(
+                        color: Colors.blue,
+                        width: 2.0,
+                      ),
+                      activeIcon: Image.asset(
+                        'assets/images/moon.png',
+                        height: 20,
+                        width: 20,
+                      ),
+                      inactiveIcon: Image.asset(
+                        'assets/images/sun.png',
+                        height: 20,
+                        width: 20,
+                      ),
+                      activeText: "Night",
+                      inactiveText: "Day",
+                      activeTextColor: Colors.white,
+                      inactiveTextColor: Colors.black,
                     ),
+                    // Text(
+                    //   'Dark Mode',
+                    //   style: TextStyle(
+                    //     color: widget.isDarkMode ? Colors.white : Colors.black,
+                    //   ),
+                    // ),
                   ],
                 ),
                 Row(
@@ -173,7 +201,7 @@ class _MainPageState extends State<MainPage> {
                     textColor: widget.isDarkMode ? Colors.white : Colors.black,
                   ),
                   AppButton(
-                    buttonText: "Previous Challenges",
+                    buttonText: "Leaderboard",
                     onPressed: () => Navigator.of(context)
                         .pushNamed(AppRoutes.previousChallenges),
                     textColor: widget.isDarkMode ? Colors.white : Colors.black,

@@ -48,7 +48,9 @@ class _MyAppState extends State<MyApp> {
             toggleTheme: () => _toggleTheme(!_isDarkMode),
             isDarkMode: _isDarkMode),
         AppRoutes.challengeList: (context) => ListChallengesPage(
-            isDarkMode: _isDarkMode, onThemeChanged: _toggleTheme),
+              isDarkMode: _isDarkMode,
+              onThemeChanged: _toggleTheme,
+            ),
         AppRoutes.previousChallenges: (context) => PreviousChallenges(),
         AppRoutes.welcome: (context) => WelcomePage(),
       },
