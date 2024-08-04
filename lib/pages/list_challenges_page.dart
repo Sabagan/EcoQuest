@@ -169,10 +169,7 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
                     fontSize: 16,
                   ),
                 ),
-                leading: Icon(
-                  Icons.eco,
-                  color: widget.isDarkMode ? Colors.green[700] : Colors.green,
-                ),
+                leading: Image.asset(challenge.image!, width: 64, height: 64,),
               ),
             );
           },
