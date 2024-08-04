@@ -3,6 +3,7 @@ import 'package:ecoquest/model/challenge.dart';
 import 'package:ecoquest/utils/app_routes.dart';
 import 'package:ecoquest/utils/challenge_preferences.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class MainPage extends StatefulWidget {
   final VoidCallback toggleTheme;
@@ -39,6 +40,9 @@ class _MainPageState extends State<MainPage> {
       fontWeight: FontWeight.normal,
     );
 
+    int? number = currentActiveChallenge!.id;
+    double screenH = MediaQuery.of(context).size.height;
+    double screenW = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: widget.isDarkMode
           ? const Color.fromARGB(255, 15, 28, 48)
@@ -104,12 +108,12 @@ class _MainPageState extends State<MainPage> {
             ),
             const SizedBox(height: 24),
             Container(
-              height: 125,
-              width: 125,
+              height: min(screenW * 0.8, screenH * 0.4),
+              width: min(screenW * 0.8, screenH * 0.4),
               color: Colors.black38,
               child: Center(
                   child: Image.asset(
-                "../assets/images/11.png",
+                '../assets/images/$number.png',
                 fit: BoxFit.cover,
               )),
             ),
@@ -177,6 +181,7 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
+            const SizedBox(height: 24),
           ],
         ),
       ),
