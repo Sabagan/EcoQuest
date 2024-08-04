@@ -118,30 +118,6 @@ class _MainPageState extends State<MainPage> {
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
               child: Align(
                 alignment: Alignment.center,
-                child: Text(
-                  "Title That Could Possibly Be Very Long Goes Here",
-                  style: textStyle,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-              child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "Description that could even more possibly be pretty long goes here",
-                  textAlign: TextAlign.center,
-                  style: descriptionStyle,
-                ),
-              ),
-            ),
-            const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 40),
-              child: Align(
-                alignment: Alignment.center,
                 child: Column(
                   children: [
                     const Text(
