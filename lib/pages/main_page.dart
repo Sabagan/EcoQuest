@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       backgroundColor: widget.isDarkMode
-          ? Colors.blue[900]
+          ? const Color.fromARGB(255, 15, 28, 48)
           : Color.fromARGB(255, 148, 186, 218),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -107,7 +107,11 @@ class _MainPageState extends State<MainPage> {
               height: 125,
               width: 125,
               color: Colors.black38,
-              child: const Center(child: Text("Image goes here")),
+              child: Center(
+                  child: Image.asset(
+                "../assets/images/11.png",
+                fit: BoxFit.cover,
+              )),
             ),
             const SizedBox(height: 24),
             Padding(
