@@ -58,12 +58,12 @@ class _MainPageState extends State<MainPage> {
               children: [
                 Row(
                   children: [
-                    Text(
-                      'Light Mode',
-                      style: TextStyle(
-                        color: widget.isDarkMode ? Colors.white : Colors.black,
-                      ),
-                    ),
+                    // Text(
+                    //   'Light Mode',
+                    //   style: TextStyle(
+                    //     color: widget.isDarkMode ? Colors.white : Colors.black,
+                    //   ),
+                    // ),
                     FlutterSwitch(
                       value: widget.isDarkMode,
                       onToggle: (val) {
@@ -96,12 +96,12 @@ class _MainPageState extends State<MainPage> {
                       activeTextColor: Colors.white,
                       inactiveTextColor: Colors.black,
                     ),
-                    Text(
-                      'Dark Mode',
-                      style: TextStyle(
-                        color: widget.isDarkMode ? Colors.white : Colors.black,
-                      ),
-                    ),
+                    // Text(
+                    //   'Dark Mode',
+                    //   style: TextStyle(
+                    //     color: widget.isDarkMode ? Colors.white : Colors.black,
+                    //   ),
+                    // ),
                   ],
                 ),
                 Row(

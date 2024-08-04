@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ecoquest/model/challenge.dart';
 import 'package:ecoquest/utils/challenge_preferences.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class ListChallengesPage extends StatefulWidget {
   final bool isDarkMode;
@@ -93,18 +94,50 @@ class _ListChallengesPageState extends State<ListChallengesPage> {
         actions: [
           Row(
             children: [
-              Text(
-                widget.isDarkMode ? 'Dark Mode' : 'Light Mode',
-                style: TextStyle(
-                  color: widget.isDarkMode ? Colors.white : Colors.black,
-                ),
-              ),
-              Switch(
+              FlutterSwitch(
                 value: widget.isDarkMode,
-                onChanged: (bool value) {
-                  widget.onThemeChanged(value);
+                onToggle: (val) {
+                  widget.onThemeChanged(val);
                 },
+                activeColor: Colors.black,
+                inactiveColor: Colors.blue,
+                activeToggleColor: Colors.white,
+                inactiveToggleColor: Colors.orange,
+                activeSwitchBorder: Border.all(
+                  color: Colors.black,
+                  width: 2.0,
+                ),
+                inactiveSwitchBorder: Border.all(
+                  color: Colors.blue,
+                  width: 2.0,
+                ),
+                activeIcon: Image.asset(
+                  'assets/images/moon.png',
+                  height: 20,
+                  width: 20,
+                ),
+                inactiveIcon: Image.asset(
+                  'assets/images/sun.png',
+                  height: 20,
+                  width: 20,
+                ),
+                activeText: "Night",
+                inactiveText: "Day",
+                activeTextColor: Colors.white,
+                inactiveTextColor: Colors.black,
               ),
+              // Text(
+              //   widget.isDarkMode ? 'Dark Mode' : 'Light Mode',
+              //   style: TextStyle(
+              //     color: widget.isDarkMode ? Colors.white : Colors.black,
+              //   ),
+              // ),
+              // Switch(
+              //   value: widget.isDarkMode,
+              //   onChanged: (bool value) {
+              //     widget.onThemeChanged(value);
+              //   },
+              // ),
             ],
           ),
         ],
