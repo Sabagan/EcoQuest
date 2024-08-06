@@ -14,6 +14,8 @@ EcoQuest is an application that assigns users quests to help them contribute to 
 ## Features
 - Re-roll challenges: If you don't like the assigned challenge, you can re-roll to get a different one.
 - Add custom challenges: Create your own challenges to add to the existing list.
+  ![image](https://github.com/user-attachments/assets/673c6693-8929-40be-a022-b13d2583a2e8)
+
 - Utilizing AI-generated images: Enhances the visual appeal of the app.
 
 ## Upcoming Features:
