@@ -8,6 +8,8 @@ Sabagan Chandrakan
 
 ## Overview
 EcoQuest is an application that assigns users quests to help them contribute to saving the environment. The application currently features a total of 30 helpful challenges.
+![image](https://github.com/user-attachments/assets/89f3a79c-5a24-45c5-9465-700e4bce4da7)
+
 
 ## Features
 - Re-roll challenges: If you don't like the assigned challenge, you can re-roll to get a different one.
@@ -32,12 +34,3 @@ You can stick to the challenge the app assigned for you, or you can re-roll to g
 ## Installation
 - Android: There is an APK included in releases for testing on Android devices.
 - Flutter: You can also test the app by installing Flutter, then running the project within an IDE like VS Code.
-
-### Links:
-[https://github.com/Sabagan/EcoQuest/releases
-](Releases)
-[https://docs.flutter.dev/get-started/install?gad_source=1&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5O1ZxbtT6sKw9jeklrdohV4wZyRGyKfxgRzC85O-CauBV0NQ0173dYaApBiEALw_wcB&gclsrc=aw.ds
-](Flutter Installation Guide)
-
-## Thank You for Your Attention!
-Check out the app and start contributing to a better environment today!
